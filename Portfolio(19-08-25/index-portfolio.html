@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Kannan B — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Kannan B — projects, skills, and experience."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fff;
+      --bg-soft: #f5f7fa;
+      --text: #1a222c;
+      --muted: #6b7a90;
+      --brand: #1e90ff;
+      --brand-2: #00bfae;
+      --card: #f0f4f8;
+      --shadow: 0 4px 20px rgba(30,144,255,0.08);
+      --radius: 16px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    aside{
+      width: 250px;
+      background: var(--bg-soft);
+      backdrop-filter: blur(12px);
+      padding: 30px 20px;
+      position: fixed;
+      height: 100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow: var(--shadow);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:700;font-size:20px;
+    }
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      display:grid;place-items:center;
+      font-weight:800;color:#fff;
+      box-shadow: var(--shadow);
+    }
+    nav ul{list-style:none;margin-top:40px;display:flex;flex-direction:column;gap:14px}
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:10px;
+      transition:.2s;
+      display:block;
+    }
+    nav a:hover,nav a.active{
+      color:var(--text);
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#fff;
+    }
+ 
+    main{
+      margin-left:250px;
+      flex:1;
+      padding:40px 20px;
+    }
+    section{
+      margin-bottom:80px;
+    }
+    .section-title{
+      font-size:26px;
+      margin-bottom:12px;
+      font-weight:700;
+    }
+    .section-desc{color:var(--muted);margin-bottom:20px}
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size:clamp(32px,4vw,50px);
+      line-height:1.2;
+    }
+    .highlight{
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color: transparent;
+      background-clip:text;
+      color:transparent;
+    }
+    .lede{font-size:18px;color:var(--muted);margin:16px 0 28px}
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:14px;
+      font-weight:600;
+      text-decoration:none;
+      transition:.2s;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      color:#fff;
+    }
+    .btn.secondary{
+      border:1px solid var(--brand);
+      color:var(--text);
+      background:var(--card);
+    }
+    .btn:hover{opacity:.9}
+    .photo{
+      border-radius:var(--radius);
+      background:var(--card);
+      padding:14px;
+      box-shadow: var(--shadow);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .photo img{
+      width:100%;
+      border-radius:var(--radius);
+    }
+    .kv{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+    .kv .item{
+      padding:16px;
+      border-radius:var(--radius);
+      background:var(--card);
+      border:1px solid var(--brand);
+    }
+    .kv .k{font-size:13px;color:var(--muted)}
+    .kv .v{font-weight:600;margin-top:4px}
+   
+    .tags{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--card);
+      border:1px solid var(--brand);
+      font-size:14px;
+    }
+  
+    .timeline{position:relative}
+    .timeline::before{
+      content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--brand);
+    }
+    .entry{
+      position:relative;
+      margin-left:30px;
+      margin-bottom:24px;
+      padding:16px;
+      border-radius:var(--radius);
+      background:var(--card);
+      border:1px solid var(--brand);
+    }
+    .entry::before{
+      content:"";position:absolute;left:-16px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--brand);
+    }
+    .entry h3{margin-bottom:6px;font-size:18px}
+    .meta{font-size:14px;color:var(--muted);margin-bottom:6px}
+  
+    footer{text-align:center;color:var(--muted);font-size:14px;padding:30px 0}
+    
+    @media(max-width:900px){
+      aside{position:relative;width:100%;height:auto;flex-direction:row;align-items:center}
+      aside nav ul{flex-direction:row;margin:0}
+      main{margin:0}
+      .hero{grid-template-columns:1fr;text-align:center}
+      .photo{max-width:70%;margin:auto}
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div>
+      <div class="brand"><div class="logo">KB</div><span>Kannan B</span></div>
+      <nav>
+        <ul>
+          <li><a href="#about" class="active">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main id="home">
+   
+    <section class="hero">
+      <div>
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:var(--card);border:1px solid var(--brand);font-size:14px">Computer Science Undergraduate</span>
+        <h1>Hi, I'm <span class="highlight">Kannan B</span>.<br/> Future Full-Stack Developer.</h1>
+        <p class="lede">I’m a Computer Science undergraduate from Chennai with strong interest in full-stack development and problem-solving.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn secondary" href="mailto:kannanb391.cse@gmail.com">Email Me</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/kannan-b-612785320" target="_blank">LinkedIn</a>
+          <a class="btn secondary" href="https://github.com" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="photo"><img src="your-photo.jpg" alt="Kannan B"/></div>
+    </section>
+
+  
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="section-desc">I am an aspiring full-stack developer with strengths in teamwork, adaptability, and attention to detail.</p>
+      <div class="kv">
+        <div class="item"><div class="k">Location</div><div class="v">Chennai, Tamil Nadu</div></div>
+        <div class="item"><div class="k">Experience</div><div class="v">Student (B.E. CSE)</div></div>
+        <div class="item"><div class="k">Looking for</div><div class="v">Internship in Full-Stack Development</div></div>
+        <div class="item"><div class="k">Interests</div><div class="v">Web Development, Problem Solving, Tech Exploration</div></div>
+      </div>
+    </section>
+
+    
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="tags">
+        <span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript (learning)</span>
+        <span class="tag">MySQL</span><span class="tag">MATLAB (basic)</span>
+        <span class="tag">Communication</span><span class="tag">Decision-making</span><span class="tag">Adaptability</span>
+      </div>
+    </section>
+
+    
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="entry">
+          <h3>Internship — Madras Management Association</h3>
+          <div class="meta">Dec 2024</div>
+          <p>Worked as an intern gaining exposure to management practices and teamwork.</p>
+        </div>
+        <div class="entry">
+          <h3>Co-organizer — Technical Paper Presentation</h3>
+          <div class="meta">Oct 2024 · Sathyabama University</div>
+          <p>Organized and coordinated a technical paper presentation event.</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="entry">
+          <h3>B.E. Computer Science and Engineering</h3>
+          <div class="meta">Sathyabama Institute of Science and Technology · 2023–2027 · CGPA: 6.77/10</div>
+        </div>
+        <div class="entry">
+          <h3>HSC — St. Marks Matriculation Hr. Sec. School</h3>
+          <div class="meta">2023 · 65%</div>
+        </div>
+        <div class="entry">
+          <h3>SSLC — St. Marks Matriculation Hr. Sec. School</h3>
+          <div class="meta">2021 · Passed</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="year"></span> Kannan B. All rights reserved.</small>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
