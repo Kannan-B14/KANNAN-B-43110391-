@@ -1,0 +1,101 @@
+package test;
+
+public class King {
+    public static void main(String[] args) {
+
+        Son1 s1 = new Son1();
+        s1.bike();
+        s1.oldBike();
+
+        Son2 s2 = new Son2();
+        s2.bike();
+        s2.oldBike();
+    }
+}
+
+class GrandFather {
+
+    private String oldBikeModel = "Royal Enfield 1983";
+
+    GrandFather() {
+        System.out.println("GrandFather Constructor Called");
+    }
+
+    public String getOldBikeModel() {
+        return oldBikeModel;
+    }
+
+    public void setOldBikeModel(String oldBikeModel) {
+        this.oldBikeModel = oldBikeModel;
+    }
+
+    void oldBike() {
+        System.out.println(getOldBikeModel());
+    }
+}
+
+class Father extends GrandFather {
+
+    private String updatedBikeModel = "Royal Enfield 2002";
+
+    Father() {
+        System.out.println("Father Constructor Called");
+        setOldBikeModel(updatedBikeModel);
+    }
+
+    public String getUpdatedBikeModel() {
+        return updatedBikeModel;
+    }
+
+    public void setUpdatedBikeModel(String updatedBikeModel) {
+        this.updatedBikeModel = updatedBikeModel;
+        setOldBikeModel(updatedBikeModel);
+    }
+
+    @Override
+    void oldBike() {
+        System.out.println(getUpdatedBikeModel());
+    }
+}
+
+class Son1 extends Father {
+
+    private String bikeModel = "KTM 390";
+
+    Son1() {
+        System.out.println("Son1 Constructor Called");
+    }
+
+    public String getBikeModel() {
+        return bikeModel;
+    }
+
+    public void setBikeModel(String bikeModel) {
+        this.bikeModel = bikeModel;
+    }
+
+    void bike() {
+        System.out.println(getBikeModel());
+    }
+}
+
+class Son2 extends Father {
+
+    private String bikeModel = "RC KTM 390";
+
+    Son2() {
+        System.out.println("Son2 Constructor Called");
+    }
+
+    public String getBikeModel() {
+        return bikeModel;
+    }
+
+    public void setBikeModel(String bikeModel) {
+        this.bikeModel = bikeModel;
+    }
+
+    void bike() {
+        System.out.println(getBikeModel());
+    }
+}
